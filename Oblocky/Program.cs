@@ -10,18 +10,10 @@ namespace Oblocky
     {
         static void Main(string[] args)
         {
-            OblNumber[] numbers = new OblNumber[5]
-                {
-                    new OblInt(10),
-                    new OblInt(5),
-                    new OblDouble(10.5),
-                    new OblInt(-99),
-                    new OblDouble(7.77)
-                };
+            OblInt num1 = new OblDouble(12.2);
+            OblInt num2 = new OblDouble(1.2);
 
-            OblNumber result = new OblInt();
-            foreach (var n in numbers)
-                result += n;
+            OblNumber result = num1 + num2;
 
             Console.WriteLine(result.Value);
             Console.WriteLine(result.GetType());

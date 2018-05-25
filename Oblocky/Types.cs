@@ -13,7 +13,7 @@ namespace Oblocky
 
     public abstract class OblNumber : IObject
     {
-        private dynamic value;
+        private dynamic _value;
         protected abstract Type ValueType { get; }
 
         public OblNumber()
@@ -28,11 +28,11 @@ namespace Oblocky
 
         public dynamic Value
         {
-            get => value;
+            get => _value;
             set
             {
                 if (value is ValueType num)
-                    Value = value;
+                    _value = value;
                 else
                     throw new Exception("Error!");
             }
@@ -50,7 +50,7 @@ namespace Oblocky
             {
                 case int num:
                     return new OblInt(num);
-                case float num:
+                case double num:
                     return new OblDouble(num);
                 default:
                     throw new Exception("Error!");
@@ -64,6 +64,8 @@ namespace Oblocky
         public OblInt(int num) : base(num) { }
 
         protected override Type ValueType { get => typeof(int); }
+
+        public static implicit operator OblInt(OblDouble value) => new OblInt((int)(value.Value));
     }
 
     public class OblDouble : OblNumber
@@ -72,5 +74,7 @@ namespace Oblocky
         public OblDouble(double num) : base(num) { }
 
         protected override Type ValueType { get => typeof(double); }
+
+        public static implicit operator OblDouble(OblInt value) => new OblDouble((double)(value.Value));
     }
 }
