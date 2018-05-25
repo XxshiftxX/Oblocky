@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Oblocky
 {
-    public interface IObject
-    {
-        dynamic Value { get; set; }
-    }
-
     public abstract class OblNumber : IObject
     {
         private dynamic _value;
@@ -56,25 +47,5 @@ namespace Oblocky
                     throw new Exception("Error!");
             }
         }
-    }
-
-    public class OblInt : OblNumber
-    {
-        public OblInt() : base() { }
-        public OblInt(int num) : base(num) { }
-
-        protected override Type ValueType { get => typeof(int); }
-
-        public static implicit operator OblInt(OblDouble value) => new OblInt((int)(value.Value));
-    }
-
-    public class OblDouble : OblNumber
-    {
-        public OblDouble() : base() { }
-        public OblDouble(double num) : base(num) { }
-
-        protected override Type ValueType { get => typeof(double); }
-
-        public static implicit operator OblDouble(OblInt value) => new OblDouble((double)(value.Value));
     }
 }
