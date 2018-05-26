@@ -1,0 +1,10 @@
+D:\Programing\CSharp\Oblocky\Oblocky\bin\Debug\Oblocky.exe.config
+D:\Programing\CSharp\Oblocky\Oblocky\bin\Debug\Oblocky.exe
+D:\Programing\CSharp\Oblocky\Oblocky\bin\Debug\Oblocky.pdb
+D:\Programing\CSharp\Oblocky\Oblocky\obj\Debug\Oblocky.csprojAssemblyReference.cache
+D:\Programing\CSharp\Oblocky\Oblocky\obj\Debug\Oblocky.csproj.CoreCompileInputs.cache
+D:\Programing\CSharp\Oblocky\Oblocky\obj\Debug\Oblocky.exe
+D:\Programing\CSharp\Oblocky\Oblocky\obj\Debug\Oblocky.pdb
+D:\Programing\CSharp\Oblocky\Oblocky\bin\Debug\System.ValueTuple.dll
+D:\Programing\CSharp\Oblocky\Oblocky\bin\Debug\System.ValueTuple.xml
+D:\Programing\CSharp\Oblocky\Oblocky\obj\Debug\Oblocky.csproj.CopyComplete
