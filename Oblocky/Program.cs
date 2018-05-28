@@ -10,13 +10,27 @@ namespace Oblocky
     {
         static void Main(string[] args)
         {
-            OblInt num1 = new OblDouble(12.2);
-            OblInt num2 = new OblDouble(1.2);       
+            OblNumCalculate calc1 = new OblNumCalculate();
+            calc1.Num1 = new OblInt(20);
+            calc1.Num2 = new OblInt(12);
+            calc1.Operator = OblNumCalculate.CalcOperator.SUB;
 
-            OblNumber result = num1 + num2;
+            OblNumCalculate calc2 = new OblNumCalculate();
+            calc2.Num1 = calc1;
+            calc2.Num2 = new OblInt(2);
+            calc2.Operator = OblNumCalculate.CalcOperator.ADD;
 
-            Console.WriteLine(result.Value);
-            Console.WriteLine(result.GetType());
+            PrintBlock A = new PrintBlock();
+            A.Value = calc2;
+
+            calc2.Num2 = new OblInt(7);
+
+            PrintBlock C = new PrintBlock();
+            C.Value = calc2;
+
+            A.NextBlock = C;
+
+            A.Execute();
         }
     }
 }

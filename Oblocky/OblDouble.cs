@@ -2,7 +2,7 @@
 
 namespace Oblocky
 {
-    public class OblDouble : OblNumber
+    public class OblDouble : OblConstNumber
     {
         public OblDouble() : base() { }
         public OblDouble(double num) : base(num) { }

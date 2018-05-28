@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace Oblocky
 {
-    class VarInitBlock : IBlock
+    class PrintBlock : IBlock
     {
         public IBlock NextBlock { get; set; }
+        public IObject Value { get; set; }
 
         public void Execute()
         {
-            throw new NotImplementedException();
+            Console.WriteLine(Value);
+            NextBlock?.Execute();
         }
     }
 }

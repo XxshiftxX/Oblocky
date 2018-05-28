@@ -2,6 +2,6 @@
 {
     interface IObject
     {
-        dynamic Value { get; set; }
+        dynamic Value { get; }
     }
 }

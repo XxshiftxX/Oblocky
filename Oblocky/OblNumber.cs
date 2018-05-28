@@ -4,36 +4,20 @@ namespace Oblocky
 {
     public abstract class OblNumber : IObject
     {
-        private dynamic _value;
+        protected dynamic _value;
+
         protected abstract Type ValueType { get; }
-
-        public OblNumber()
-        {
-            Value = 0;
-        }
-
-        public OblNumber(ValueType num)
-        {
-            Value = num;
-        }
-
-        public dynamic Value
-        {
-            get => _value;
-            set
-            {
-                if (value is ValueType num)
-                    _value = value;
-                else
-                    throw new Exception("Error!");
-            }
-        }
+        public abstract dynamic Value { get; }
 
         public static OblNumber operator +(OblNumber num1, OblNumber num2) => ChangeNumToOblNumber(num1.Value + num2.Value);
         public static OblNumber operator -(OblNumber num1, OblNumber num2) => ChangeNumToOblNumber(num1.Value - num2.Value);
         public static OblNumber operator *(OblNumber num1, OblNumber num2) => ChangeNumToOblNumber(num1.Value * num2.Value);
         public static OblNumber operator /(OblNumber num1, OblNumber num2) => ChangeNumToOblNumber(num1.Value / num2.Value);
         public static OblNumber operator %(OblNumber num1, OblNumber num2) => ChangeNumToOblNumber(num1.Value % num2.Value);
+
+        //public static implicit operator OblNumber(OblVariable v) => ChangeNumToOblNumber(v.Value);
+
+        public override string ToString() => Value.ToString();
 
         private static OblNumber ChangeNumToOblNumber(dynamic input)
         {

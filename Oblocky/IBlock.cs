@@ -4,9 +4,6 @@
     {
         IBlock NextBlock { get; set; }
 
-        void Execute()
-        {
-
-        }
+        void Execute();
     }
 }
