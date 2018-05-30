@@ -45,15 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IBlock.cs" />
-    <Compile Include="IObject.cs" />
-    <Compile Include="OblConstNumber.cs" />
-    <Compile Include="OblDouble.cs" />
-    <Compile Include="OblInt.cs" />
-    <Compile Include="OblNumber.cs" />
-    <Compile Include="OblNumCalculate.cs" />
-    <Compile Include="PrintBlock.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
