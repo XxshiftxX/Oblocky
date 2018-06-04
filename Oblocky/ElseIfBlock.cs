@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace Oblocky
 {
-    class ElseIfBlock : IfBlock { }
+    public class ElseIfBlock : IfBlock { }
 }

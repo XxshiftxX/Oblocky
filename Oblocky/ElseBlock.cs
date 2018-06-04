@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Oblocky
 {
-    class ElseBlock : IBlock
+    public class ElseBlock : IBlock
     {
         public IBlock NextBlock { get; set; }
         public IBlock InnerBlock { get; set; }

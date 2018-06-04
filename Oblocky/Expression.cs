@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Oblocky
 {
-    public interface IBlock
+    public abstract class Expression
     {
-        IBlock NextBlock { get; set; }
-
-        void Execute();
+        public abstract object Value { get; }
+        public virtual new string ToString() => Value.ToString();
     }
 }

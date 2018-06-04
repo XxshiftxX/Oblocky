@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Oblocky
 {
-    class IfBlock : IBlock
+    public class IfBlock : IBlock
     {
         public IBlock NextBlock { get; set; }
         public IBlock InnerBlock { get; set; }
 
-        public bool Condition { get; set; }
+        public Expression Condition { get; set; }
 
         public void Execute()
         {
-            var condition = Condition;
+            var condition = (bool)Condition.Value;
             if(condition)
             {
                 InnerBlock?.Execute();
