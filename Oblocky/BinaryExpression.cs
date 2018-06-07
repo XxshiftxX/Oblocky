@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Oblocky
 {
-    class BinaryExpression : Expression
+    public class BinaryExpression : Expression
     {
         public enum OperatorEnum
         {
@@ -22,8 +22,8 @@ namespace Oblocky
         {
             get
             {
-                dynamic a = LeftOperand;
-                dynamic b = RightOperand;
+                dynamic a = LeftOperand.Value;
+                dynamic b = RightOperand.Value;
                 switch (Operator)
                 {
                     case OperatorEnum.ADD:

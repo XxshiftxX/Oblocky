@@ -25,7 +25,13 @@ namespace Oblocky
         public object this[string n]
         {
             get => dict[n];
-            set => dict[n] = value;
+            set
+            {
+                if (!dict.ContainsKey(n))
+                    dict.Add(n, value);
+                else
+                    dict[n] = value;
+            }
         }
     }
 }

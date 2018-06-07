@@ -12,7 +12,6 @@ namespace Oblocky
         public override object Value
         {
             get => VariableManager.Inst[Name];
-            set => VariableManager.Inst[Name] = value;
         }
     }
 }

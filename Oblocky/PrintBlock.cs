@@ -9,9 +9,13 @@ namespace Oblocky
     class PrintBlock : IBlock
     {
         public IBlock NextBlock { get; set; }
-        public Action<string> Handler;
-        public List<Expression> Content;
+        public Action<string> Handler = (s) => Console.WriteLine(s);
+        public List<Expression> Contents = new List<Expression>();
 
-        public void Execute() => Handler(string.Join(string.Empty, Content.Select(x => x.Value.ToString())));
+        public void Execute()
+        {
+            Handler(string.Join(string.Empty, Contents.Select(x => x.Value.ToString())));
+            NextBlock?.Execute();
+        }
     }
 }
