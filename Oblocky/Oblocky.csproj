@@ -58,6 +58,7 @@
     <Compile Include="SetVarBlock.cs" />
     <Compile Include="VariableExpression.cs" />
     <Compile Include="VariableManager.cs" />
+    <Compile Include="WhileBlock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
