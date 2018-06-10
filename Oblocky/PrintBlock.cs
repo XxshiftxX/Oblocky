@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Oblocky
 {
-    class PrintBlock : IBlock
+    public class PrintBlock : IBlock
     {
         public IBlock NextBlock { get; set; }
         public Action<string> Handler = (s) => Console.WriteLine(s);
