@@ -6,51 +6,63 @@ using System.Windows;
 using System.Windows.Media;
 using System.Diagnostics;
 using System.Windows.Threading;
+using System.Windows.Shapes;
+using System.Collections.Generic;
 
 namespace OblockyGraphics
 {
     /// <summary>
     /// PrintBlockControl.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class PrintBlockControl : UserControl
+    public partial class PrintBlockControl : BaseBlockControl
     {
-        private bool isClicked;
-        private Thickness clickedMargin;
-        private Point clickedPos;
-
-        private DispatcherTimer timer = new DispatcherTimer();
-
         public PrintBlockControl()
         {
             Block = new PrintBlock();
             InitializeComponent();
+            BackgroundBorderControl = BackgroundBorder;
+            SetSnapRanges();
         }
 
         public PrintBlock Block { get; set; }
 
-        private void BackgroundMouseDown(object sender, MouseButtonEventArgs e)
+        public override Transform RenderBackground => BackgroundBorder.RenderTransform;
+
+        protected override void BackgroundMouseDown(object sender, MouseButtonEventArgs e)
         {
-            Debug.WriteLine("클맄ㅋ");
-            Debug.WriteLine(Parent as UIElement);
-            isClicked = true;
-            clickedPos = e.GetPosition(Parent as UIElement);
-            clickedMargin = Margin;
+            var handler = MouseDownHandler;
+            handler?.Invoke(sender, e);
         }
 
-        private void BorderMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        protected override void BackgroundMouseUp(object sender, MouseButtonEventArgs e)
         {
-            isClicked = false;
-            var dc = sender as UserControl;
+            var handler = MouseUpHandler;
+            handler?.Invoke(sender, e);
         }
 
-        private void BackgroundMouseMove(object sender, MouseEventArgs e)
+        protected override void BackgroundMouseMove(object sender, MouseEventArgs e)
         {
-            if(isClicked)
+            var handler = MouseMoveHandler;
+            var res = handler?.Invoke(sender, e);
+
+            if (res.HasValue && res.Value)
+                SetSnapRanges();
+        }
+
+        protected override void SetSnapRanges()
+        {
+            var transform = RenderBackground as TranslateTransform;
+
+            if (transform == null)
             {
-                var pos = e.GetPosition(this);
-                var res = pos - clickedPos;
-                Margin = new Thickness(clickedMargin.Left + res.X, clickedMargin.Top + res.Y, clickedMargin.Right, clickedMargin.Bottom);
+                transform = new TranslateTransform();
+                RenderTransform = transform;
             }
+
+
+            var temp = new Rect(transform.X, transform.Y + ActualHeight - 5, ActualWidth, 10);
+            try { BlockSnapRanges[0] = (temp, new Point(transform.X, transform.Y + ActualHeight)); }
+            catch (ArgumentOutOfRangeException) { BlockSnapRanges.Add((temp, new Point(transform.X, transform.Y + ActualHeight))); }
         }
     }
 }

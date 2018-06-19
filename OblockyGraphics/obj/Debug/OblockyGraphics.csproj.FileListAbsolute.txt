@@ -20,3 +20,5 @@ D:\Programing\CSharp\Oblocky\OblockyGraphics\obj\Debug\OblockyGraphics.csproj.Co
 D:\Programing\CSharp\Oblocky\OblockyGraphics\obj\Debug\OblockyGraphics.csproj.CopyComplete
 D:\Programing\CSharp\Oblocky\OblockyGraphics\obj\Debug\OblockyGraphics.exe
 D:\Programing\CSharp\Oblocky\OblockyGraphics\obj\Debug\OblockyGraphics.pdb
+D:\Programing\CSharp\Oblocky\OblockyGraphics\obj\Debug\BaseExpressionControl.g.cs
+D:\Programing\CSharp\Oblocky\OblockyGraphics\obj\Debug\BaseExpressionControl.baml

@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Canvas x:Name="MainCanvasControl">
-            <local:PrintBlockControl x:Name="myBlock" Canvas.Top="10" Canvas.Left="20"/>
+            <Button x:Name="Test" Width="100" Height="50" Canvas.Left="571" Canvas.Top="195" Click="Test_Click"/>
         </Canvas>
     </Grid>
 </Window>
