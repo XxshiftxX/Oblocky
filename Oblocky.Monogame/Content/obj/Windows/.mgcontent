@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>D:/Programing/CSharp/Oblocky/Oblocky.Monogame/Content/sprite.png</File>
+    <File>D:/Programing/CSharp/Oblocky/Oblocky.Monogame/Content/font.spritefont</File>
+    <File>D:/Programing/CSharp/Oblocky/Oblocky.Monogame/Content/Cursor.png</File>
+  </SourceFiles>
+</SourceFileCollection>
