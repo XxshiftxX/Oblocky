@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Oblocky
+namespace Oblocky.Monogame
 {
-    public class ElseIfBlock : IfBlock { }
+    public interface IObject
+    {
+    }
 }

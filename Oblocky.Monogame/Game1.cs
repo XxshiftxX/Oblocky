@@ -33,10 +33,10 @@ namespace Oblocky.Monogame
         private Texture2D rect;
         private SpriteFont font;
         #endregion
-        
-        private TextBox text = new TextBox();
 
-        private List<IDrawable> objects = new List<IDrawable>();
+        public static List<IDrawable> Objects = new List<IDrawable>();
+
+        private TextBox text = new TextBox();
         private Dictionary<Microsoft.Xna.Framework.Input.Keys, bool> isKeyDown = new Dictionary<Microsoft.Xna.Framework.Input.Keys, bool>();
 
         public Game1()
@@ -54,20 +54,12 @@ namespace Oblocky.Monogame
             graphicsDevice = GraphicsDevice;
 
             Random r = new Random();
-            for(int i = 0; i < 20; i++)
+            for(int i = 0; i < 30; i++)
             {
                 var temp = new PrintBlock();
                 temp.Position = new Point(r.Next(20, 500), r.Next(20, 300));
-                objects.Add(temp);
+                Objects.Add(temp);
             }
-
-            // Test Block Create
-            var a = new PrintBlock();
-            a.Position = new Point(10, 20);
-            objects.Add(a);
-            var b = new PrintBlock();
-            b.Position = new Point(30, 80);
-            objects.Add(b);
         }
 
         protected override void LoadContent()
@@ -106,11 +98,11 @@ namespace Oblocky.Monogame
             {
                 if (!MouseLeftPress)
                 {
-                    objects.Reverse();
+                    Objects.Reverse();
 
                     IDrawable drawables = null;
 
-                    foreach(var temp in objects)
+                    foreach(var temp in Objects)
                     {
                         if(temp.Collision.Contains(MouseState.Position) && (drawables == null || drawables.Layer < temp.Layer))
                         {
@@ -122,11 +114,11 @@ namespace Oblocky.Monogame
                     {
                         drawables.ClickPosition = MouseState.Position - drawables.Position;
                         drawables.IsMoving = true;
-                        objects.Remove(drawables);
-                        objects.Insert(0, drawables);
+                        Objects.Remove(drawables);
+                        Objects.Insert(0, drawables);
                     }
 
-                    objects.Reverse();
+                    Objects.Reverse();
 
                     MouseLeftPress = true;
                 }
@@ -152,7 +144,7 @@ namespace Oblocky.Monogame
                 Exit();
             #endregion
 
-            foreach(var obj in objects)
+            foreach(var obj in Objects)
             {
                 obj.Update();
             }
@@ -164,7 +156,7 @@ namespace Oblocky.Monogame
 
             spriteBatch.Begin();
 
-            foreach (var obj in objects)
+            foreach (var obj in Objects)
             {
                 obj.Draw(spriteBatch);
             }

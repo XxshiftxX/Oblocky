@@ -41,23 +41,16 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Expressions\BinaryExpression.cs" />
-    <Compile Include="Expressions\ConstExpression.cs" />
-    <Compile Include="Blocks\ElseBlock.cs" />
-    <Compile Include="Blocks\ElseIfBlock.cs" />
-    <Compile Include="Expressions\Expression.cs" />
-    <Compile Include="Game1.cs" />
     <Compile Include="Blocks\IBlock.cs" />
-    <Compile Include="Blocks\IfBlock.cs" />
+    <Compile Include="Expressions\IExpression.cs" />
+    <Compile Include="Game1.cs" />
     <Compile Include="Blocks\PrintBlock.cs" />
     <Compile Include="IDrawable.cs" />
+    <Compile Include="IObject.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Blocks\SetVarBlock.cs" />
-    <Compile Include="Expressions\VariableExpression.cs" />
     <Compile Include="SnapCollision.cs" />
     <Compile Include="VariableManager.cs" />
-    <Compile Include="Blocks\WhileBlock.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />

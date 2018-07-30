@@ -7,16 +7,37 @@ using System.Threading.Tasks;
 
 namespace Oblocky.Monogame
 {
-    enum SnapType
+    public enum SnapType
     {
         Func, Expression
     }
 
-    struct SnapCollision
+    public struct SnapCollision
     {
-        public Rectangle Collision { get; set; }
+        public readonly Rectangle Collision;
+        public readonly Point SnapPoint;
         public readonly SnapType SnapType;
 
         public static implicit operator Rectangle(SnapCollision s) => s.Collision;
+
+        public SnapCollision(Point snapPoint, Rectangle collision, SnapType snapType)
+        {
+            SnapPoint = snapPoint;
+            Collision = collision;
+            SnapType = snapType;
+        }
+
+        public bool IsSnappable(IDrawable block)
+        {
+            switch(block)
+            {
+                case IBlock b when SnapType == SnapType.Func:
+                    return true;
+                case IExpression e when SnapType == SnapType.Expression:
+                    return true;
+                default:
+                    return false;
+            }
+        }
     }
 }

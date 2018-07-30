@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Oblocky
+﻿namespace Oblocky.Monogame
 {
-    public interface IBlock
+    public abstract class IBlock : IDrawable
     {
-        IBlock NextBlock { get; set; }
+        public IBlock NextBlock { get; set; }
 
-        void Execute();
+        public abstract void Execute();
     }
 }
