@@ -6,21 +6,12 @@ using System.Threading.Tasks;
 
 namespace Oblocky
 {
-    class VariableManager
+    internal class VariableManager
     {
-        private Dictionary<string, object> dict = new Dictionary<string, object>();
+        private readonly Dictionary<string, object> dict = new Dictionary<string, object>();
         private static VariableManager inst;
 
-        public static VariableManager Inst
-        {
-            get
-            {
-                if (inst == null)
-                    inst = new VariableManager();
-
-                return inst;
-            }
-        }
+        public static VariableManager Inst => inst ?? (inst = new VariableManager());
 
         public object this[string n]
         {

@@ -10,7 +10,7 @@ namespace Oblocky
     {
         public enum OperatorEnum
         {
-            ADD, SUB, MUL, DIV, MOD, BIG, SML, EQL, EBG, ESM
+            Add, Sub, Mul, Div, Mod, Big, Sml, Eql, Ebg, Esm
         }
 
         public OperatorEnum Operator;
@@ -26,25 +26,25 @@ namespace Oblocky
                 dynamic b = RightOperand.Value;
                 switch (Operator)
                 {
-                    case OperatorEnum.ADD:
+                    case OperatorEnum.Add:
                         return a + b;
-                    case OperatorEnum.SUB:
+                    case OperatorEnum.Sub:
                         return a - b;
-                    case OperatorEnum.MUL:
+                    case OperatorEnum.Mul:
                         return a * b;
-                    case OperatorEnum.DIV:
+                    case OperatorEnum.Div:
                         return a / b;
-                    case OperatorEnum.MOD:
+                    case OperatorEnum.Mod:
                         return a % b;
-                    case OperatorEnum.BIG:
+                    case OperatorEnum.Big:
                         return a > b;
-                    case OperatorEnum.SML:
+                    case OperatorEnum.Sml:
                         return a < b;
-                    case OperatorEnum.EQL:
+                    case OperatorEnum.Eql:
                         return a == b;
-                    case OperatorEnum.EBG:
+                    case OperatorEnum.Ebg:
                         return a >= b;
-                    case OperatorEnum.ESM:
+                    case OperatorEnum.Esm:
                         return a <= b;
                     default:
                         throw new Exception("??");

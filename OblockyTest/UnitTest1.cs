@@ -19,7 +19,7 @@ namespace OblockyTest
         public void BinaryTest1()
         {
             BinaryExpression exp = new BinaryExpression();
-            exp.Operator = BinaryExpression.OperatorEnum.ADD;
+            exp.Operator = BinaryExpression.OperatorEnum.Add;
 
             ConstExpression cos = new ConstExpression();
             cos.SetValue(20);
@@ -37,7 +37,7 @@ namespace OblockyTest
         public void BinaryTest2()
         {
             BinaryExpression exp = new BinaryExpression();
-            exp.Operator = BinaryExpression.OperatorEnum.EQL;
+            exp.Operator = BinaryExpression.OperatorEnum.Eql;
 
             ConstExpression cos = new ConstExpression();
             cos.SetValue(20);
@@ -58,7 +58,7 @@ namespace OblockyTest
             vari.Name = "ACC";
 
             BinaryExpression exp = new BinaryExpression();
-            exp.Operator = BinaryExpression.OperatorEnum.SUB;
+            exp.Operator = BinaryExpression.OperatorEnum.Sub;
 
             ConstExpression cos = new ConstExpression();
             cos.SetValue(15);
@@ -190,15 +190,15 @@ namespace OblockyTest
             vari.Name = "VAR";
             sum.Name = "SUM";
 
-            sumadder.Operator = BinaryExpression.OperatorEnum.ADD;
+            sumadder.Operator = BinaryExpression.OperatorEnum.Add;
             sumadder.LeftOperand = vari;
             sumadder.RightOperand = sum;
 
-            oneadder.Operator = BinaryExpression.OperatorEnum.ADD;
+            oneadder.Operator = BinaryExpression.OperatorEnum.Add;
             oneadder.LeftOperand = vari;
             oneadder.RightOperand = one;
             
-            eq.Operator = BinaryExpression.OperatorEnum.SML;
+            eq.Operator = BinaryExpression.OperatorEnum.Sml;
             eq.LeftOperand = vari;
             eq.RightOperand = six;
 

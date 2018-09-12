@@ -14,7 +14,7 @@ namespace Oblocky
             vari.Name = "ACC";
 
             BinaryExpression exp = new BinaryExpression();
-            exp.Operator = BinaryExpression.OperatorEnum.SUB;
+            exp.Operator = BinaryExpression.OperatorEnum.Sub;
 
             ConstExpression cos = new ConstExpression();
             cos.SetValue(15);

@@ -53,13 +53,35 @@ namespace Oblocky.Monogame
 
             graphicsDevice = GraphicsDevice;
 
+            /*
             Random r = new Random();
-            for(int i = 0; i < 30; i++)
+            for(int i = 0; i < 5; i++)
             {
                 var temp = new PrintBlock();
-                temp.Position = new Point(r.Next(20, 500), r.Next(20, 300));
+                temp.Position = new Point(r.Next(20, 900), r.Next(20, 600));
                 Objects.Add(temp);
             }
+            */
+
+            var temp = new PrintBlock() { name = "1" };
+            temp.Position = new Point(100, 50);
+            Objects.Add(temp);
+
+            temp = new PrintBlock() { name = "2" };
+            temp.Position = new Point(100, 150);
+            Objects.Add(temp);
+
+            temp = new PrintBlock() { name = "3" };
+            temp.Position = new Point(100, 250);
+            Objects.Add(temp);
+
+            temp = new PrintBlock() { name = "4" };
+            temp.Position = new Point(100, 350);
+            Objects.Add(temp);
+
+            temp = new PrintBlock() { name = "5" };
+            temp.Position = new Point(100, 450);
+            Objects.Add(temp);
         }
 
         protected override void LoadContent()

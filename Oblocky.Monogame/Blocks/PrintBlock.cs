@@ -12,12 +12,12 @@ namespace Oblocky
     public class PrintBlock : IBlock
     {
         private IBlock nextBlock;
-        public IBlock NextBlock
+        public override IBlock NextBlock
         {
             get => nextBlock;
             set
             {
-                value = nextBlock;
+                nextBlock = value;
                 Resize();
             }
         }
@@ -32,7 +32,17 @@ namespace Oblocky
             new SnapCollision(
                 new Point(Position.X, Position.Y + size.Y),
                 new Rectangle(new Point(Position.X, Position.Y + size.Y - 15), new Point(size.X, 30)),
-                SnapType.Func)
+                SnapType.Func,
+                (arg) =>
+                    {
+                        var temp = (IBlock)arg;
+                        if(NextBlock != null && NextBlock != temp)
+                        {
+                            temp.NextBlock = NextBlock;
+                        }
+                        NextBlock = temp;
+                    }
+                )
         };
 
         public Action<string> Handler = (s) => Debug.WriteLine(s);
@@ -61,7 +71,16 @@ namespace Oblocky
 
         protected override void update()
         {
-            
+            if (NextBlock != null)
+            {
+                NextBlock.Position = new Point(Position.X, Position.Y + size.Y);
+                NextBlock.Update();
+
+                if (!NextBlock.IsSnapping)
+                {
+                    NextBlock = null;
+                }
+            }
         }
 
 

@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BinaryExpression.cs" />
+    <Compile Include="ClassBlock.cs" />
     <Compile Include="ConstExpression.cs" />
     <Compile Include="ElseBlock.cs" />
     <Compile Include="ElseIfBlock.cs" />

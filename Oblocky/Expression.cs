@@ -9,6 +9,6 @@ namespace Oblocky
     public abstract class Expression
     {
         public abstract object Value { get; }
-        public virtual new string ToString() => Value.ToString();
+        public new virtual string ToString() => Value.ToString();
     }
 }

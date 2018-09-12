@@ -9,9 +9,6 @@ namespace Oblocky
     public class VariableExpression : Expression
     {
         public string Name;
-        public override object Value
-        {
-            get => VariableManager.Inst[Name];
-        }
+        public override object Value => VariableManager.Inst[Name];
     }
 }

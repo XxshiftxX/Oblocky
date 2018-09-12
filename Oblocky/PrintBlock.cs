@@ -9,7 +9,7 @@ namespace Oblocky
     public class PrintBlock : IBlock
     {
         public IBlock NextBlock { get; set; }
-        public Action<string> Handler = (s) => Console.WriteLine(s);
+        public Action<string> Handler = Console.WriteLine;
         public List<Expression> Contents = new List<Expression>();
 
         public void Execute()

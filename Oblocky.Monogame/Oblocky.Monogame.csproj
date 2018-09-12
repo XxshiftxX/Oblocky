@@ -41,6 +41,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Blocks\Class1.cs" />
     <Compile Include="Blocks\IBlock.cs" />
     <Compile Include="Expressions\IExpression.cs" />
     <Compile Include="Game1.cs" />

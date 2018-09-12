@@ -17,14 +17,16 @@ namespace Oblocky.Monogame
         public readonly Rectangle Collision;
         public readonly Point SnapPoint;
         public readonly SnapType SnapType;
+        public readonly Action<IDrawable> ApplySnap;
 
         public static implicit operator Rectangle(SnapCollision s) => s.Collision;
 
-        public SnapCollision(Point snapPoint, Rectangle collision, SnapType snapType)
+        public SnapCollision(Point snapPoint, Rectangle collision, SnapType snapType, Action<IDrawable> applySnap)
         {
             SnapPoint = snapPoint;
             Collision = collision;
             SnapType = snapType;
+            ApplySnap = applySnap;
         }
 
         public bool IsSnappable(IDrawable block)

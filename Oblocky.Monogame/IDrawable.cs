@@ -11,10 +11,12 @@ namespace Oblocky.Monogame
 {
     public abstract class IDrawable
     {
+        public string name;
         public Point Position;
         public int Layer = 0;
         public bool IsMoving;
         public Point ClickPosition;
+        public bool IsSnapping = false;
 
         public abstract SnapCollision[] SnapCollisions { get; }
         public abstract Rectangle Collision { get; } 
@@ -31,18 +33,29 @@ namespace Oblocky.Monogame
                 }
                 else
                 {
-                    Position = Game1.MouseState.Position - ClickPosition;
-
+                    bool snapFlag = false;
                     foreach (var obj in Game1.Objects)
                     {
+                        // 본인에게 스냅 불가
                         if (obj == this)
                             continue;
 
                         foreach(var col in obj.SnapCollisions)
                         {
                             if (col.IsSnappable(this) && col.Collision.Contains(Game1.MouseState.Position))
+                            {
                                 Position = col.SnapPoint;
+                                col.ApplySnap(this);
+                                snapFlag = true;
+                                IsSnapping = true;
+                            }
                         }
+                    }
+
+                    if (!snapFlag)
+                    {
+                        Position = Game1.MouseState.Position - ClickPosition;
+                        IsSnapping = false;
                     }
                 }
             }
