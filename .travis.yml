@@ -1,2 +1,4 @@
 language: csharp
 solution: Oblocky.sln
+script:
+        - nunit-console ./OblockyTest/bin/Debug/OblockyTest.dll
